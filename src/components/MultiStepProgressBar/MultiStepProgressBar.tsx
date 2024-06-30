@@ -10,14 +10,14 @@ interface Props {
 
 export const MultiStepProgressBar: FC<Props> = ({ currentStep, totalSteps}) => {
   const navigate = useNavigate()
-  const {id} = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string | undefined }>()
   const progressPercentage = (+currentStep / totalSteps) * 100;
-  const prevStep = +id - 1;
+  const prevStep = +id! - 1;
   const handleBackButtonClick = () => {
     navigate(`/${PATH.QUIZ}/${prevStep}`, { replace: true })
   }
 
-  const isShowBackButton = +id >= 2;
+  const isShowBackButton = +id! >= 2;
 
   return (
     <div className="progress-bar-container">
