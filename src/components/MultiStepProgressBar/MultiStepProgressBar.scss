@@ -1,0 +1,41 @@
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #1a002e;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-family: Arial, sans-serif;
+
+  .back-button {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .progress-info {
+    margin: 0 10px;
+    font-size: 18px;
+
+    .current-step {
+      color: #ff6ec7;
+    }
+
+    .total-steps {
+      color: #b0b0b0;
+    }
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .progress-bar-filled {
+      height: 100%;
+      background-color: #ff6ec7;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}
