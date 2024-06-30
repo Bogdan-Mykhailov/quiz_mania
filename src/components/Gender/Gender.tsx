@@ -13,7 +13,7 @@ export const Gender: FC<Props> = ({data}) => {
   const { id } = useParams<{ id: string | undefined }>();
   const nextStep = +id! + 1;
   const handleButtonClick = (selectedOption: string) => {
-    localStorage.setItem(id, JSON.stringify({
+    localStorage.setItem(id!, JSON.stringify({
         order: id,
         title,
         type,
@@ -27,7 +27,7 @@ export const Gender: FC<Props> = ({data}) => {
     <div>
       {params.map((option, i) => (
         <div>
-          <span>{images[i]}</span>
+          <span>{images![i]}</span>
           <button key={i} onClick={() => handleButtonClick(option)}>{option}</button>
         </div>
       ))}
