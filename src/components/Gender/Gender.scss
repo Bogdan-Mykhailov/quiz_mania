@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.gender {
+  @include flexCentered;
+  flex-direction: row;
+  gap: 10px;
+}

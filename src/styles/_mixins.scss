@@ -1,0 +1,48 @@
+@import "./variables";
+
+@mixin flexCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumnCentered {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin buttonMainStyles {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all .3s;
+  color: $color-white;
+  background-color: $color-secondary-button;
+}
+
+@mixin primaryButtonStyles {
+  width: 100%;
+  height: 56px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 30px;
+  border: none;
+  background-color: $color-primary-button;
+  color: $color-white;
+  font-family: Albert sanse, sans-serif;
+  transition: all .3s;
+  font-weight: 800;
+}
+
+@mixin secondaryButtonStyles {
+  @include buttonMainStyles();
+  font-family: Nunito Sans, sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+

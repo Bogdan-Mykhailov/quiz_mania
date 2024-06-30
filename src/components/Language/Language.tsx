@@ -1,16 +1,18 @@
 import {FC, useEffect, useState} from 'react';
 import {useTranslation} from "react-i18next";
 import {LOCALE} from "../../i18n/languiges.ts";
-import {Data} from "../../types/types.ts";
+import {ButtonType, Data} from "../../types";
 import {useNavigate, useParams} from "react-router";
 import {PATH} from "../../routes";
+import {Button} from "../Button";
+import './Language.scss';
 
 interface Props {
   data: Data;
 }
 
 export const Language: FC<Props> = ({data}) => {
-  const { id } = useParams<{ id: string | undefined }>();
+  const {id} = useParams<{ id: string | undefined }>();
   const langs = Object.values(LOCALE);
   const {i18n} = useTranslation();
   const {title, type, params} = data;
@@ -38,11 +40,14 @@ export const Language: FC<Props> = ({data}) => {
   }, [selectedLang]);
 
   return (
-    <div>
+    <div className='language'>
       {params.map((option, i) => (
-        <button key={i} onClick={() => handleClick(langs[i])}>
-          {option}
-        </button>
+        <Button
+          type={ButtonType.SECONDARY}
+          title={option}
+          key={i}
+          callBack={() => handleClick(langs[i])}
+        />
       ))}
     </div>
   );

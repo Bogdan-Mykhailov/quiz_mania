@@ -1,4 +1,3 @@
-import './App.scss'
 import {FC} from "react";
 import {MainRoutes} from "./routes";
 

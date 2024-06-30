@@ -1,0 +1,79 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.primary {
+  @include primaryButtonStyles();
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &__disabled {
+    @include primaryButtonStyles();
+    opacity: 40%;
+    cursor: auto;
+  }
+}
+
+.secondary {
+  @include secondaryButtonStyles();
+  max-width: 480px;
+  height: 60px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 17px;
+
+
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+
+  &:hover {
+    border: 1px solid $color-primary-button;
+  }
+
+  &__icon {
+    @include secondaryButtonStyles();
+    width: max-content;
+    flex-direction: column;
+    height: max-content;
+    padding: 32px 24px;
+
+    &:hover {
+      border: 1px solid $color-primary-button;
+    }
+  }
+
+  &__large {
+    @include buttonMainStyles();
+    text-align: start;
+    max-width: 480px;
+    height: 76px;
+    padding: 12px 20px;
+    font-family: Albert sanse, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+
+
+    &:not(:last-of-type) {
+      margin-bottom: 12px;
+    }
+
+    &:hover {
+      border: 1px solid $color-primary-button;
+    }
+  }
+
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 6px;
+}
+
+.text {
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}

@@ -12,4 +12,9 @@ export default {
     type: "single-select-image",
     images: ['👩🏼', '👨🏻', '🧔🏻‍♀️'],
   },
+  '3': {
+    title: "Quel est votre âge?",
+    params: ['18-29 ans', '30-39 ans', '40-49 ans', '50+'],
+    type: 'single-select',
+  },
 }

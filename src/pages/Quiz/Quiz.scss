@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+.quiz {
+
+  &__title {
+    font-weight: 700;
+    font-size: 28px;
+    color: $color-title;
+    margin-bottom: 16px;
+    line-height: 34px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    color: $color-subtitle;
+    margin-bottom: 24px;
+  }
+}
