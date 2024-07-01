@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.circular-progressbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.circular-progress-bar {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 45px;
+
+  &__circle {
+    fill: none;
+    stroke-width: 10;
+  }
+
+  &__circle-background {
+    stroke: $color-progress-bar;
+  }
+
+  &__circle-progress {
+    stroke: $color-primary-button;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  &__percentage {
+    @include flexCentered();
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Albert sans, sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: $color-white;
+  }
+
+  &__title {
+    min-width: 210px;
+  }
+}

@@ -4,6 +4,8 @@ export interface Data {
   params: string[];
   type: string;
   images?: string[];
+  terms?: string;
+  placeholder?: string;
 }
 
 export enum ButtonType {

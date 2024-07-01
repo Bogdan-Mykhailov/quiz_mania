@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const Book: FC<Props> = ({data}) => {
-  const {id} = useParams<{ id: string | undefined}>();
+  const {id} = useParams<{ id: string | undefined }>();
   const navigate = useNavigate();
   const {title, type, params} = data;
   const [selectedBooks, setSelectedBooks] = useState<string[]>([]);
@@ -28,7 +28,7 @@ export const Book: FC<Props> = ({data}) => {
   }, [selectedBooks]);
 
   const handleCheckboxChange = (option: string) => {
-   setSelectedBooks((prevSelectedBooks) =>
+    setSelectedBooks((prevSelectedBooks) =>
       prevSelectedBooks.includes(option)
         ? prevSelectedBooks.filter((book) => book !== option)
         : [...prevSelectedBooks, option]
@@ -48,33 +48,33 @@ export const Book: FC<Props> = ({data}) => {
 
   return (
     <div className='book'>
-      {params.map((option, i) => (
-        <div
-          key={i}
-          onClick={() => handleCheckboxChange(option)}
-          className={`book__wrapper ${selectedBooks.includes(option)
-            ? 'book__wrapper--selected'
-            : ''}`}
-        >
-          <p className='book__title'>{option}</p>
-          <label className="container">
-            <input
-              className='container__input input'
-              type="checkbox"
-              onChange={() => handleCheckboxChange(option)}
-              checked={selectedBooks.includes(option)}
-            />
-            <div className="container__checkmark checkmark"></div>
-          </label>
-        </div>
-      ))}
+        {params.map((option, i) => (
+          <div
+            key={i}
+            onClick={() => handleCheckboxChange(option)}
+            className={`book__wrapper ${selectedBooks.includes(option)
+              ? 'book__wrapper--selected'
+              : ''}`}
+          >
+            <p className='book__title'>{option}</p>
+            <label className="container">
+              <input
+                className='container__input input'
+                type="checkbox"
+                onChange={() => handleCheckboxChange(option)}
+                checked={selectedBooks.includes(option)}
+              />
+              <div className="container__checkmark checkmark"></div>
+            </label>
+          </div>
+        ))}
 
-      <Button
-        title='Next'
-        type={correctButtonType}
-        callBack={handleButtonClick}
-        disabled={isNextButtonDisabled}
-      />
+        <Button
+          title='Next'
+          type={correctButtonType}
+          callBack={handleButtonClick}
+          disabled={isNextButtonDisabled}
+        />
     </div>
   );
 };

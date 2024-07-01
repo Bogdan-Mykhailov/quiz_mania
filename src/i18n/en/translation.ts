@@ -22,4 +22,30 @@ export default {
     params: ['Lack of logic', 'A slow speed', 'Lack of humor', 'Way too generic ending'],
     type: 'multiple-select',
   },
+  '5': {
+    title: "What are your favorite topics?",
+    description: "Choose up to 3 topics you like",
+    params: ["Werewolf", "Romance", "Action", "Young Adult", "Royal Obsession", "Bad Boy", "Billionaire"],
+    images: ["🐺", "🥰", "💃", "💁‍♀️", "👑", "🤠", "🤑"],
+    type: 'bubble',
+  },
+  'progressbar': {
+    title: 'Finding collections for you...'
+  },
+  'email': {
+    title: 'Email',
+    description: 'Enter your email to get full access',
+    terms: 'By continuing I agree with Privacy policy and Terms of use.',
+    type: 'email',
+    placeholder: 'Your email'
+  },
+  'button': {
+    next: 'Next',
+    'retake-quiz': 'Retake quiz'
+  },
+  'gratings': {
+    title: 'Thank you',
+    subtitle: 'for supporting us and passing quiz',
+    download: 'Download my answers'
+  },
 }

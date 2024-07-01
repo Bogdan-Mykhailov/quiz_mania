@@ -55,13 +55,45 @@
     font-weight: 500;
     font-size: 17px;
 
-
     &:not(:last-of-type) {
       margin-bottom: 12px;
     }
 
     &:hover {
       border: 1px solid $color-primary-button;
+    }
+  }
+
+  &__rounded {
+    @include secondaryButtonColors;
+    @include flexColumnCentered;
+    width: 95px;
+    height: 95px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s;
+    overflow: hidden;
+
+    &:nth-child(4n + 3) {
+      margin-top: 24px;
+    }
+
+    &:hover {
+      border: 2px solid $color-primary-button;
+    }
+
+    span {
+      font-size: 25px;
+    }
+
+    p {
+      text-wrap: wrap;
+      width: 70px;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 600;
+      font-family: Nunito Sans, sans-serif;
     }
   }
 
@@ -76,4 +108,8 @@
   line-height: 20px;
   font-size: 15px;
   font-weight: 600;
+}
+
+.border {
+  border: 2px solid $color-primary-button;
 }

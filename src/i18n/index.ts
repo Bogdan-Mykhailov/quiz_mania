@@ -29,7 +29,6 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    lng: LOCALE.EN,
     interpolation: {
       escapeValue: false,
     },

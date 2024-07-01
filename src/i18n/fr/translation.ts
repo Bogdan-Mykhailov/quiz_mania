@@ -22,4 +22,30 @@ export default {
     params: ["Manque de logique", "Lenteur", "Manque d'humour", "Fin trop générique"],
     type: "multiple-select"
   },
+  '5': {
+    title: "Quels sont vos sujets préférés?",
+    description: "Choisissez jusqu'à 3 sujets que vous aimez",
+    params: ["Loup-garou", "Romance", "Action", "Jeune adulte", "Obsession royale", "Mauvais garçon", "Milliardaire"],
+    images: ["🐺", "🥰", "💃", "💁‍♀️", "👑", "🤠", "🤑"],
+    type: 'bubble',
+  },
+  'progressbar': {
+    title: "Recherche de collections pour vous..."
+  },
+  'email': {
+    title: 'E-mail',
+    description: 'Entrez votre adresse e-mail pour obtenir un accès complet',
+    terms: "En continuant, j'accepte la Politique de confidentialité et les Conditions d'utilisation.",
+    type: 'email',
+    placeholder: 'Votre e-mail'
+  },
+  "button": {
+    next: "Suivant",
+    "retake-quiz": "Repasser le quiz"
+  },
+  "gratings": {
+    title: "Merci",
+    subtitle: "de nous soutenir et de passer le quiz",
+    download: "Télécharger mes réponses"
+  }
 }

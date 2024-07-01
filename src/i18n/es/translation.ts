@@ -21,5 +21,31 @@ export default {
     title: "¿Qué es lo que más odias de un libro?",
     params: ["Falta de lógica", "Lentitud", "Falta de humor", "Final demasiado genérico"],
     type: "multiple-select"
-  }
+  },
+  '5': {
+    title: "¿Cuáles son tus temas favoritos?",
+    description: "Elige hasta 3 temas que te gusten",
+    params: ["Hombre lobo", "Romance", "Acción", "Jóvenes Adultos", "Obsesión Real", "Chico Malo", "Multimillonario"],
+    images: ["🐺", "🥰", "💃", "💁‍♀️", "👑", "🤠", "🤑"],
+    type: 'bubble',
+  },
+  'progressbar': {
+    title: "Encontrando colecciones para ti..."
+  },
+  'email': {
+    title: 'Correo electrónico',
+    description: 'Ingrese su correo electrónico para obtener acceso completo',
+    terms: 'Al continuar, acepto la Política de privacidad y los Términos de uso.',
+    type: 'email',
+    placeholder: 'Tu correo electrónico'
+  },
+  "button": {
+    next: "Siguiente",
+    "retake-quiz": "Volver a hacer la prueba"
+  },
+  "gratings": {
+    title: "Gracias",
+    subtitle: "por apoyarnos y pasar la prueba",
+    download: "Descargar mis respuestas"
+  },
 }

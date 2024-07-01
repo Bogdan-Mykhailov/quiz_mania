@@ -45,4 +45,9 @@
   align-items: center;
 }
 
+@mixin secondaryButtonColors {
+  background-color: $color-secondary-button;
+  color: $color-white;
+}
+
 

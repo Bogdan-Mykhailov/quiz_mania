@@ -1,53 +1,82 @@
-import { FC } from 'react';
+import {FC, useEffect, useState} from 'react';
 import './Quiz.scss';
-import { useTranslation } from "react-i18next";
-import { Data } from "../../types";
-import {Age, Book, Gender, Language, MultiStepProgressBar} from "../../components";
-import {useParams} from "react-router";
+import {useTranslation} from "react-i18next";
+import {Data} from "../../types";
+import {Age, Book, CircularProgressBar, Gender, Language, MultiStepProgressBar, Topics} from "../../components";
+import {useNavigate, useParams} from "react-router";
+import {PATH} from "../../routes";
 
 export const Quiz: FC = () => {
-  const { t } = useTranslation();
-  const { id } = useParams<{ id: string | undefined }>();
+  const {t} = useTranslation();
+  const {id} = useParams<{ id: string | undefined }>();
+  const navigate = useNavigate();
+  const [isProgressBarActive, setIsProgressBarActive] = useState<boolean>(false);
 
-  const params = t(id!, { returnObjects: true }) as Data;
-  const { title, description} = params;
+  const params = t(id!, {returnObjects: true}) as Data;
+  const {title, description} = params;
 
   let StepComponent;
   switch (+id!) {
     case 1:
-      StepComponent = <Language data={params} />;
+      StepComponent = <Language data={params}/>;
       break;
     case 2:
-      StepComponent = <Gender data={params} />;
+      StepComponent = <Gender data={params}/>;
       break;
-      case 3:
-      StepComponent = <Age data={params} />;
+    case 3:
+      StepComponent = <Age data={params}/>;
       break;
-      case 4:
-      StepComponent = <Book data={params} />;
+    case 4:
+      StepComponent = <Book data={params}/>;
       break;
-    default:
-      StepComponent = <div>Unknown step</div>;
+    case 5:
+      StepComponent = <Topics data={params} onNext={() => setIsProgressBarActive(true)}/>;
+      break;
   }
+  useEffect(() => {
+    if (isProgressBarActive) {
+      const timer = setTimeout(() => {
+        navigate(`/${PATH.EMAIL}`);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isProgressBarActive, navigate]);
 
   const renderTitle = (title: string) => {
-    if (id === '4' && title.includes('hate')) {
-      const parts = title.split('hate');
+    const highlightWord = (word: string, text: string) => {
+      const parts = text.split(word);
       return (
         <>
-          {parts[0]}<span className='quiz__highlight'>hate</span>{parts[1]}
+          {parts[0]}<span className='quiz__highlight'>{word}</span>{parts[1]}
         </>
       );
+    };
+
+    if (id === '4') {
+      if (title.includes('hate')) return highlightWord('hate', title);
+      if (title.includes('hassen')) return highlightWord('hassen', title);
+      if (title.includes('détestez')) return highlightWord('détestez', title);
+      if (title.includes('odias')) return highlightWord('odias', title);
     }
+
     return title;
   };
 
   return (
     <div className='quiz'>
-      <MultiStepProgressBar totalSteps={5} currentStep={id!} />
-      <p className='quiz__title'>{renderTitle(title)}</p>
-      <p className='quiz__subtitle'>{description}</p>
-      {StepComponent}
+      {isProgressBarActive ? (
+        <div className='quiz__progress-wrapper'>
+          <CircularProgressBar duration={5}/>
+        </div>
+      ) : (
+        <>
+          <MultiStepProgressBar totalSteps={5} currentStep={id!}/>
+          <p className='quiz__title'>{renderTitle(title)}</p>
+          <p className='quiz__subtitle'>{description}</p>
+          {StepComponent}
+        </>
+      )}
     </div>
   );
 };

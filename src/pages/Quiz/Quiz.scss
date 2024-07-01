@@ -1,6 +1,13 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .quiz {
+  height: calc(100vh - 246px);
+
+  &__progress-wrapper {
+    height: 90vh;
+    @include flexCentered;
+  }
 
   &__title {
     font-weight: 700;

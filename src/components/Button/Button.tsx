@@ -6,8 +6,10 @@ interface Props {
   type: ButtonType;
   title: string;
   icon?: string;
-  callBack: () => void;
-  disabled?: boolean
+  callBack?: () => void;
+  disabled?: boolean;
+  isActive?: boolean;
+  submit?: boolean;
 }
 
 export const Button: FC<Props> = ({
@@ -15,12 +17,15 @@ export const Button: FC<Props> = ({
                                     icon,
                                     type,
                                     callBack,
-                                    disabled
+                                    disabled,
+                                    isActive,
+  submit,
                                   }) => {
   return (
     <button
+      type={submit ? 'submit' : 'button'}
       disabled={disabled}
-      className={`${type}`}
+      className={`${type} ${isActive ? 'border' : ''}`}
       onClick={callBack}
     >
       {icon && <span className='icon'>{icon}</span>}
