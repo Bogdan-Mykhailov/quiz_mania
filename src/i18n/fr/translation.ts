@@ -17,4 +17,9 @@ export default {
     params: ['18-29 ans', '30-39 ans', '40-49 ans', '50+'],
     type: 'single-select',
   },
+  '4': {
+    title: "Qu'est-ce que vous détestez le plus dans un livre?",
+    params: ["Manque de logique", "Lenteur", "Manque d'humour", "Fin trop générique"],
+    type: "multiple-select"
+  },
 }

@@ -13,5 +13,4 @@ export enum ButtonType {
   SECONDARY_LARGE = 'secondary__large',
   SECONDARY_ICON = 'secondary__icon',
   SECONDARY_ROUNDED = 'secondary__rounded',
-  SECONDARY_CHECKBOX = 'secondary__checkbox'
 }

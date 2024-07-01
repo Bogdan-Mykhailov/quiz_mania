@@ -17,4 +17,9 @@ export default {
     params: ['18-29 años', '30-39 años', '40-49 años', '50+'],
     type: 'single-select',
   },
+  '4': {
+    title: "¿Qué es lo que más odias de un libro?",
+    params: ["Falta de lógica", "Lentitud", "Falta de humor", "Final demasiado genérico"],
+    type: "multiple-select"
+  }
 }

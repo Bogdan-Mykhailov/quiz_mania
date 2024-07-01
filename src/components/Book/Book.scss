@@ -1,0 +1,118 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.book {
+  @include flexColumnCentered;
+
+  &__wrapper {
+    @include buttonMainStyles;
+    justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 480px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: 12px 20px;
+    font-weight: 500;
+    font-size: 17px;
+    color: $color-white;
+    margin-bottom: 12px;
+
+    &:last-of-type {
+      margin-bottom: 26px;
+    }
+
+    &:hover {
+      border: 1px solid $color-primary-button;
+    }
+
+    &:active {
+      border: 1px solid $color-primary-button;
+    }
+
+    &--selected {
+      border: 1px solid $color-primary-button;
+      background-color: $color-primary-label;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked {
+      ~ {
+        .checkmark {
+          background-color: $color-primary-button;
+          animation: pop 0.5s;
+          animation-direction: alternate;
+
+          &:after {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__checkmark {
+    &:after {
+      left: 0.40em;
+      top: 0.20em;
+      width: 0.25em;
+      height: 0.5em;
+      border: solid white;
+      border-width: 0 0.15em 0.15em 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: $color-secondary-checkbox;
+  transition: all .3s;
+  border-radius: 8px;
+  border: 1px solid $color-primary-button;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

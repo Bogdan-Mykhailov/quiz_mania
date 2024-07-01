@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+
 .quiz {
 
   &__title {
@@ -13,5 +14,9 @@
     font-weight: 400;
     color: $color-subtitle;
     margin-bottom: 24px;
+  }
+
+  &__highlight {
+    color: $color-primary-button;
   }
 }

@@ -17,4 +17,9 @@ export default {
     params: ['18-29 years', '30-39 years', '40-49 years', '50+'],
     type: 'single-select',
   },
+  '4': {
+    title: "What do you hate the most in a book?",
+    params: ['Lack of logic', 'A slow speed', 'Lack of humor', 'Way too generic ending'],
+    type: 'multiple-select',
+  },
 }

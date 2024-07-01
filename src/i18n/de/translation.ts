@@ -17,4 +17,9 @@ export default {
     params: ['18-29 Jahre', '30-39 Jahre', '40-49 Jahre', '50+'],
     type: 'single-select',
   },
+  '4': {
+    title: "Was hassen Sie am meisten an einem Buch?",
+    params: ["Logikmangel", "Langsames Tempo", "Mangel an Humor", "Zu allgemeines Ende"],
+    type: "multiple-select"
+  }
 }
