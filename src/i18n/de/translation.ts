@@ -43,7 +43,7 @@ export default {
     next: "Weiter",
     "retake-quiz": "Quiz wiederholen"
   },
-  "gratings": {
+  "greetings": {
     title: "Danke",
     subtitle: "für Ihre Unterstützung und das Bestehen des Quiz",
     download: "Meine Antworten herunterladen"

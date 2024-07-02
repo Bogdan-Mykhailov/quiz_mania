@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from 'react';
 import {useTranslation} from "react-i18next";
-import {LOCALE} from "../../i18n/languiges.ts";
+import {LOCALE, LocaleText} from "../../i18n/languiges.ts";
 import {ButtonType, Data} from "../../types";
 import {useNavigate, useParams} from "react-router";
 import {PATH} from "../../routes";
@@ -19,6 +19,7 @@ export const Language: FC<Props> = ({data}) => {
   const navigate = useNavigate()
   const [selectedLang, setSelectedLang] = useState<LOCALE | null>(null);
 
+
   const handleClick = (lang: LOCALE) => {
     i18n.changeLanguage(lang);
     setSelectedLang(lang)
@@ -32,7 +33,7 @@ export const Language: FC<Props> = ({data}) => {
         order: id,
         title,
         type,
-        answer: selectedLang
+        answer: LocaleText[selectedLang]
       }
       localStorage.setItem(id!, JSON.stringify(newData));
       navigate(`/${PATH.QUIZ}/${nextStep}`, {replace: true});

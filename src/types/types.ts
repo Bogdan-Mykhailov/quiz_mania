@@ -16,3 +16,10 @@ export enum ButtonType {
   SECONDARY_ICON = 'secondary__icon',
   SECONDARY_ROUNDED = 'secondary__rounded',
 }
+
+export interface TableData {
+  order: number;
+  title: string;
+  type: string;
+  answer: string;
+}

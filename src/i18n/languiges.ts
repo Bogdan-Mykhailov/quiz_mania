@@ -4,3 +4,10 @@ export enum LOCALE {
   DE = 'de',
   ES = 'es',
 }
+
+export const LocaleText = {
+  [LOCALE.EN]: 'English',
+  [LOCALE.FR]: 'French',
+  [LOCALE.DE]: 'German',
+  [LOCALE.ES]: 'Spanish',
+};

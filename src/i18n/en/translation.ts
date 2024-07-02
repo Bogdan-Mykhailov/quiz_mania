@@ -43,7 +43,7 @@ export default {
     next: 'Next',
     'retake-quiz': 'Retake quiz'
   },
-  'gratings': {
+  'greetings': {
     title: 'Thank you',
     subtitle: 'for supporting us and passing quiz',
     download: 'Download my answers'

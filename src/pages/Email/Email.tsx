@@ -108,9 +108,7 @@ export const Email: FC = () => {
           {errors.email && <p className='email__error'>{errors.email.message}</p>}
         </div>
         <p className='email__terms'>{renderTerms(terms!)}</p>
-        <div className='email__button-wrapper'>
-          <Button submit title='Next' type={correctButtonType} isActive/>
-        </div>
+        <Button submit title='Next' type={correctButtonType} isActive/>
       </div>
     </form>
   );
