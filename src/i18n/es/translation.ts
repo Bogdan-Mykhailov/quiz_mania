@@ -48,4 +48,7 @@ export default {
     subtitle: "por apoyarnos y pasar la prueba",
     download: "Descargar mis respuestas"
   },
+  "not-found": {
+    oops: "¡Vaya!... No encontrado"
+  }
 }

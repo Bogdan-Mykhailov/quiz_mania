@@ -24,24 +24,23 @@
   font-weight: 600;
   font-size: 17px;
 
-
   &:not(:last-of-type) {
     margin-bottom: 12px;
   }
 
   &:hover {
-    border: 1px solid $color-primary-button;
+    border: 2px solid $color-primary-button;
   }
 
   &__icon {
-    @include secondaryButtonStyles();
+    @include secondaryButtonStyles;
     width: max-content;
     flex-direction: column;
     height: max-content;
     padding: 32px 24px;
 
     &:hover {
-      border: 1px solid $color-primary-button;
+      border: 2px solid $color-primary-button;
     }
   }
 
@@ -60,7 +59,7 @@
     }
 
     &:hover {
-      border: 1px solid $color-primary-button;
+      border: 2px solid $color-primary-button;
     }
   }
 
@@ -69,7 +68,7 @@
     @include flexColumnCentered;
     width: 95px;
     height: 95px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 50%;
     cursor: pointer;
     transition: all .3s;
@@ -96,7 +95,6 @@
       font-family: Nunito Sans, sans-serif;
     }
   }
-
 }
 
 .icon {

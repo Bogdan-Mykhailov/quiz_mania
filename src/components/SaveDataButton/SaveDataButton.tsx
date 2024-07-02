@@ -15,7 +15,7 @@ export const SaveDataButton: FC<Props> = ({icon, title}) => {
     const data: TableData[] = [];
 
     keys.forEach(key => {
-      if (key !== 'i18nextLng') { // Перевірка, щоб не додавати ключ 'i18nextLng'
+      if (key !== 'i18nextLng') {
         const value = localStorage.getItem(key);
         if (value) {
           try {
@@ -46,7 +46,7 @@ export const SaveDataButton: FC<Props> = ({icon, title}) => {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'localStorageData.csv';
+    a.download = 'answers.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -58,7 +58,11 @@ export const SaveDataButton: FC<Props> = ({icon, title}) => {
       className='save-button'
       onClick={handleSaveData}
     >
-      <img className='save-button__icon' src={icon} alt="Download icon"/>
+      <img
+        className='save-button__icon'
+        src={icon}
+        alt="Download icon"
+      />
       {title}
     </button>
   );

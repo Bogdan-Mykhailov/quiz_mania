@@ -47,5 +47,8 @@ export default {
     title: "Danke",
     subtitle: "für Ihre Unterstützung und das Bestehen des Quiz",
     download: "Meine Antworten herunterladen"
+  },
+  "not-found": {
+    oops: "Ups!... Nicht gefunden"
   }
 }

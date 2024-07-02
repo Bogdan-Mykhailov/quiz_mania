@@ -15,7 +15,7 @@ export const MultiStepProgressBar: FC<Props> = ({currentStep, totalSteps}) => {
   const progressPercentage = (+currentStep / totalSteps) * 100;
   const prevStep = +id! - 1;
   const handleBackButtonClick = () => {
-    navigate(`/${PATH.QUIZ}/${prevStep}`, {replace: true})
+    navigate(`/${PATH.QUIZ}/${prevStep}`)
   }
 
   const isShowBackButton = +id! >= 2;
@@ -38,7 +38,10 @@ export const MultiStepProgressBar: FC<Props> = ({currentStep, totalSteps}) => {
       </div>
 
       <div className="progressbar__line">
-        <div className="progressbar__line--filled" style={{width: `${progressPercentage}%`}}></div>
+        <div
+          className="progressbar__line--filled"
+          style={{width: `${progressPercentage}%`}}
+        ></div>
       </div>
     </div>
   );

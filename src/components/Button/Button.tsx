@@ -19,7 +19,7 @@ export const Button: FC<Props> = ({
                                     callBack,
                                     disabled,
                                     isActive,
-  submit,
+                                    submit,
                                   }) => {
   return (
     <button

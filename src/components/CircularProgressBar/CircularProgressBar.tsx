@@ -8,13 +8,11 @@ interface Props {
   strokeWidth?: number;
 }
 
-export const CircularProgressBar: FC<Props> = (
-  {
-    duration,
-    size = 252,
-    strokeWidth = 10,
-  }
-) => {
+export const CircularProgressBar: FC<Props> = ({
+                                                 duration,
+                                                 size = 252,
+                                                 strokeWidth = 10,
+                                               }) => {
   const [progress, setProgress] = useState(0);
   const {t} = useTranslation()
 
@@ -34,32 +32,49 @@ export const CircularProgressBar: FC<Props> = (
 
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (progress / 100) * circumference;
+  const offset =
+    circumference - (progress / 100) * circumference;
 
   return (
     <div className='circular-progressbar'>
-      <div className="circular-progress-bar" style={{width: size, height: size}}>
+      <div
+        className="circular-progress-bar"
+        style={{width: size, height: size}}
+      >
         <svg width={size} height={size}>
           <circle
-            className="circular-progress-bar__circle circular-progress-bar__circle-background"
+            className="circular-progress-bar__circle
+              circular-progress-bar__circle-background"
             strokeWidth={strokeWidth}
             r={radius}
             cx={size / 2}
             cy={size / 2}
           />
           <circle
-            className="circular-progress-bar__circle circular-progress-bar__circle-progress"
+            className="circular-progress-bar__circle
+              circular-progress-bar__circle-progress"
             strokeWidth={strokeWidth}
             r={radius}
             cx={size / 2}
             cy={size / 2}
-            style={{strokeDasharray: circumference, strokeDashoffset: offset}}
+            style={{
+              strokeDasharray: circumference,
+              strokeDashoffset: offset
+            }}
           />
         </svg>
-        <div className="circular-progress-bar__percentage">{`${progress}%`}</div>
+        <div
+          className="circular-progress-bar__percentage"
+        >
+          {`${progress}%`}
+        </div>
       </div>
 
-      <span className='circular-progress-bar__title'>{t('progressbar.title')}</span>
+      <span
+        className='circular-progress-bar__title'
+      >
+        {t('progressbar.title')}
+      </span>
     </div>
   );
 };

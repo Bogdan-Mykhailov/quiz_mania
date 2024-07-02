@@ -10,10 +10,17 @@ interface Props {
 }
 
 export const Gender: FC<Props> = ({data}) => {
-  const {params, title, type, images} = data;
+  const {
+    params,
+    title,
+    type,
+    images
+  } = data;
   const navigate = useNavigate()
   const {id} = useParams<{ id: string | undefined }>();
+
   const nextStep = +id! + 1;
+
   const handleButtonClick = (selectedOption: string) => {
     localStorage.setItem(id!, JSON.stringify({
         order: id,
@@ -22,7 +29,7 @@ export const Gender: FC<Props> = ({data}) => {
         answer: selectedOption,
       })
     );
-    navigate(`/${PATH.QUIZ}/${nextStep}`, {replace: true})
+    navigate(`/${PATH.QUIZ}/${nextStep}`)
   }
 
   return (

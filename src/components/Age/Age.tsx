@@ -10,9 +10,14 @@ interface Props {
 }
 
 export const Age: FC<Props> = ({ data }) => {
-  const { params, title, type } = data;
+  const {
+    params,
+    title,
+    type
+  } = data;
   const { id } = useParams<{ id: string | undefined }>()
   const navigate = useNavigate()
+
   const nextStep = +id! + 1
 
   const handleButtonClick = (selectedAge: string) => {

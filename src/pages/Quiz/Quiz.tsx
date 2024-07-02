@@ -2,9 +2,18 @@ import {FC, useEffect, useState} from 'react';
 import './Quiz.scss';
 import {useTranslation} from "react-i18next";
 import {Data} from "../../types";
-import {Age, Book, CircularProgressBar, Gender, Language, MultiStepProgressBar, Topics} from "../../components";
+import {
+  Age,
+  Book,
+  CircularProgressBar,
+  Gender,
+  Language,
+  MultiStepProgressBar,
+  Topics
+} from "../../components";
 import {useNavigate, useParams} from "react-router";
 import {PATH} from "../../routes";
+import {pageFour} from "../../utils";
 
 export const Quiz: FC = () => {
   const {t} = useTranslation();
@@ -33,15 +42,6 @@ export const Quiz: FC = () => {
       StepComponent = <Topics data={params} onNext={() => setIsProgressBarActive(true)}/>;
       break;
   }
-  useEffect(() => {
-    if (isProgressBarActive) {
-      const timer = setTimeout(() => {
-        navigate(`/${PATH.EMAIL}`);
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isProgressBarActive, navigate]);
 
   const renderTitle = (title: string) => {
     const highlightWord = (word: string, text: string) => {
@@ -53,7 +53,7 @@ export const Quiz: FC = () => {
       );
     };
 
-    if (id === '4') {
+    if (id === pageFour) {
       if (title.includes('hate')) return highlightWord('hate', title);
       if (title.includes('hassen')) return highlightWord('hassen', title);
       if (title.includes('détestez')) return highlightWord('détestez', title);
@@ -62,6 +62,16 @@ export const Quiz: FC = () => {
 
     return title;
   };
+
+  useEffect(() => {
+    if (isProgressBarActive) {
+      const timer = setTimeout(() => {
+        navigate(`/${PATH.EMAIL}`);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isProgressBarActive, navigate]);
 
   return (
     <div className='quiz'>

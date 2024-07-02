@@ -15,9 +15,13 @@ export const Language: FC<Props> = ({data}) => {
   const {id} = useParams<{ id: string | undefined }>();
   const langs = Object.values(LOCALE);
   const {i18n} = useTranslation();
-  const {title, type, params} = data;
   const navigate = useNavigate()
   const [selectedLang, setSelectedLang] = useState<LOCALE | null>(null);
+  const {
+    title,
+    type,
+    params
+  } = data;
 
 
   const handleClick = (lang: LOCALE) => {
@@ -36,7 +40,7 @@ export const Language: FC<Props> = ({data}) => {
         answer: LocaleText[selectedLang]
       }
       localStorage.setItem(id!, JSON.stringify(newData));
-      navigate(`/${PATH.QUIZ}/${nextStep}`, {replace: true});
+      navigate(`/${PATH.QUIZ}/${nextStep}`);
     }
   }, [selectedLang]);
 

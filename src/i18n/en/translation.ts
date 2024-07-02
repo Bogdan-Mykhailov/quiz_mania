@@ -48,4 +48,7 @@ export default {
     subtitle: 'for supporting us and passing quiz',
     download: 'Download my answers'
   },
+  'not-found': {
+    oops: 'Oops!... Not found'
+  }
 }

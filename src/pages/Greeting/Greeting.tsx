@@ -1,14 +1,21 @@
 import {FC} from 'react';
 import './Greeting.scss';
-import {SaveDataButton} from "../../components";
+import {Button, SaveDataButton} from "../../components";
 import {useTranslation} from "react-i18next";
 import downloadIcon from '../../assets/download.png'
 import okIcon from '../../assets/ok.png'
-import {Button} from "../../components/Button";
 import {ButtonType} from "../../types";
+import {useNavigate} from "react-router";
+import {PATH} from "../../routes";
 
 export const Greeting: FC = () => {
   const {t} = useTranslation();
+  const navigate = useNavigate();
+
+  const handleRetakeQuiz = () => {
+    localStorage.clear();
+    navigate(`/${PATH.QUIZ}/1`);
+  };
 
   return (
     <div className='greetings'>
@@ -19,7 +26,7 @@ export const Greeting: FC = () => {
       </div>
 
       <SaveDataButton icon={downloadIcon} title={t('greetings.download')}/>
-      <Button title={t('button.retake-quiz')} type={ButtonType.PRIMARY} callBack={() => {}} />
+      <Button title={t('button.retake-quiz')} type={ButtonType.PRIMARY} callBack={handleRetakeQuiz} />
     </div>
   );
 };

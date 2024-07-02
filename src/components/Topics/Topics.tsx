@@ -2,8 +2,9 @@ import { FC, useEffect, useState } from 'react';
 import { ButtonType, Data } from "../../types";
 import { Button } from "../Button";
 import { useParams } from "react-router";
-
+import {useTranslation} from "react-i18next";
 import './Topics.scss';
+import {getButtonType} from "../../utils";
 
 interface Props {
   data: Data;
@@ -12,8 +13,14 @@ interface Props {
 
 export const Topics: FC<Props> = ({ data, onNext }) => {
   const { id } = useParams<{ id: string | undefined }>();
-  const { title, type, images, params } = data;
+  const {t} = useTranslation();
   const [selectedBubble, setSelectedBubble] = useState<string[]>([]);
+  const {
+    title,
+    type,
+    images,
+    params
+  } = data;
 
   useEffect(() => {
     localStorage.setItem(
@@ -41,10 +48,8 @@ export const Topics: FC<Props> = ({ data, onNext }) => {
     }
   };
 
-  const isNextButtonDisabled = !selectedBubble.length;
-  const correctButtonType = isNextButtonDisabled
-    ? ButtonType.PRIMARY__DISABLED
-    : ButtonType.PRIMARY;
+  const isNextButtonDisabled = selectedBubble.length < 3;
+  const buttonType = getButtonType(isNextButtonDisabled);
 
   return (
     <div className='topics'>
@@ -62,8 +67,8 @@ export const Topics: FC<Props> = ({ data, onNext }) => {
       </div>
 
         <Button
-          title='Next'
-          type={correctButtonType}
+          title={t('button.next')}
+          type={buttonType}
           callBack={handleButtonClick}
           disabled={isNextButtonDisabled}
         />

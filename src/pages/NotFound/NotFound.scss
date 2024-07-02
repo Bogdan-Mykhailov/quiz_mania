@@ -1,0 +1,29 @@
+.notFound {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+
+  &__title {
+    font-family: Albert Sans, sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 100px;
+  }
+
+  &__icon {
+    font-size: 100px;
+    margin-bottom: 100px;
+  }
+
+  &__subtitle {
+    font-family: Albert Sans, sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 38px;
+    margin-bottom: 100px;
+    color: #a10000;
+  }
+}

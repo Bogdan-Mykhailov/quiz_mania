@@ -23,3 +23,7 @@ export interface TableData {
   type: string;
   answer: string;
 }
+
+export interface FormInput {
+  email: string;
+}
