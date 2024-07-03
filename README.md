@@ -16,6 +16,7 @@ Quiz Mania is an interactive quiz application built using React and TypeScript. 
 - Data Saving: User-entered data is saved to local storage and can be downloaded as a CSV file.
 - Progress Indicators: Includes both linear and circular progress indicators to display the quiz's progress.
 <img width="372" alt="Screenshot 2024-07-02 at 19 36 24" src="https://github.com/Bogdan-Mykhailov/quiz_mania/assets/91826635/96e925fd-87ea-4233-b522-f71012e32bc8">
+<img width="372" alt="Screenshot 2024-07-02 at 19 36 11" src="https://github.com/Bogdan-Mykhailov/quiz_mania/assets/91826635/a134aeb5-e6d3-4154-8baf-f10b972c56b2">
 <img width="374" alt="Screenshot 2024-07-02 at 19 36 40" src="https://github.com/Bogdan-Mykhailov/quiz_mania/assets/91826635/b9baa7d9-5286-4486-9467-2a0c585847cd">
 <img width="373" alt="Screenshot 2024-07-02 at 19 36 58" src="https://github.com/Bogdan-Mykhailov/quiz_mania/assets/91826635/fbdf6406-0210-4526-8e49-fe6f91c21259">
 <img width="373" alt="Screenshot 2024-07-02 at 19 37 24" src="https://github.com/Bogdan-Mykhailov/quiz_mania/assets/91826635/42273a75-423f-4d30-bc5d-1894837d1c8b">
