@@ -28,10 +28,12 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
+    lng: LOCALE.EN,
     resources,
     interpolation: {
       escapeValue: false,
     },
+    returnObjects: true,
   });
 
 export default i18n;

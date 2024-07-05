@@ -22,10 +22,13 @@ export const Quiz: FC = () => {
   const [isProgressBarActive, setIsProgressBarActive] = useState<boolean>(false);
 
   const params = t(id!, {returnObjects: true}) as Data;
+
+  console.log('params:', params);
   const {title, description} = params;
 
   let StepComponent;
-  switch (+id!) {
+  const idNum = Number(id);
+  switch (idNum) {
     case 1:
       StepComponent = <Language data={params}/>;
       break;
