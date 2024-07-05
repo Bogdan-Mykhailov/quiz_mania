@@ -2,9 +2,9 @@ import { FC, useEffect, useState } from 'react';
 import { ButtonType, Data } from "../../types";
 import { Button } from "../Button";
 import { useParams } from "react-router";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import './Topics.scss';
-import {getButtonType} from "../../utils";
+import { getButtonType } from "../../utils";
 
 interface Props {
   data: Data;
@@ -13,7 +13,7 @@ interface Props {
 
 export const Topics: FC<Props> = ({ data, onNext }) => {
   const { id } = useParams<{ id: string | undefined }>();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [selectedBubble, setSelectedBubble] = useState<string[]>([]);
   const {
     title,
@@ -35,11 +35,15 @@ export const Topics: FC<Props> = ({ data, onNext }) => {
   }, [selectedBubble]);
 
   const handleSelectBubble = (option: string) => {
-    setSelectedBubble((prevSelectedBubble) =>
-      prevSelectedBubble.includes(option)
-        ? prevSelectedBubble.filter((bubble) => bubble !== option)
-        : [...prevSelectedBubble, option]
-    );
+    setSelectedBubble((prevSelectedBubble) => {
+      if (prevSelectedBubble.includes(option)) {
+        return prevSelectedBubble.filter((bubble) => bubble !== option);
+      } else if (prevSelectedBubble.length < 3) {
+        return [...prevSelectedBubble, option];
+      } else {
+        return prevSelectedBubble;
+      }
+    });
   };
 
   const handleButtonClick = () => {
@@ -48,7 +52,7 @@ export const Topics: FC<Props> = ({ data, onNext }) => {
     }
   };
 
-  const isNextButtonDisabled = selectedBubble.length < 3;
+  const isNextButtonDisabled = selectedBubble.length === 0;
   const buttonType = getButtonType(isNextButtonDisabled);
 
   return (
@@ -66,12 +70,12 @@ export const Topics: FC<Props> = ({ data, onNext }) => {
         ))}
       </div>
 
-        <Button
-          title={t('button.next')}
-          type={buttonType}
-          callBack={handleButtonClick}
-          disabled={isNextButtonDisabled}
-        />
+      <Button
+        title={t('button.next')}
+        type={buttonType}
+        callBack={handleButtonClick}
+        disabled={isNextButtonDisabled}
+      />
     </div>
   );
 };
