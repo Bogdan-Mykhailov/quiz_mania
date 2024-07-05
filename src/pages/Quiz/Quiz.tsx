@@ -23,7 +23,6 @@ export const Quiz: FC = () => {
 
   const params = t(id!, {returnObjects: true}) as Data;
 
-  console.log('params:', params);
   const {title, description} = params;
 
   let StepComponent;
