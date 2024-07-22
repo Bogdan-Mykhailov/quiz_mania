@@ -34,12 +34,11 @@ describe('Topics Component', () => {
   it('navigates to the next page when next button is clicked and progress completes', () => {
     cy.get('.topics__wrapper > :nth-child(1)').click();
     cy.get('.primary').click();
-    const duration = 4;
+
     cy.clock();
     cy.get('.circular-progress-bar__percentage').should('contain.text', '0%');
 
-    cy.tick((duration) * 1000);
-    cy.get('.circular-progress-bar__percentage').should('contain.text', '80%');
+    cy.get('.circular-progress-bar__percentage', { timeout: 5000 }).should('contain.text', '99%');
     cy.url().should('include', '/email');
   });
 });

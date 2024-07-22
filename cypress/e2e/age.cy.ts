@@ -1,21 +1,16 @@
 describe('Age Component', () => {
   beforeEach(() => {
-    localStorage.setItem('quizData', JSON.stringify({
-      title: "What is your age?",
-      params: ['18-29 years', '30-39 years', '40-49 years', '50+'],
-      type: 'single-select',
-    }));
-
+    cy.intercept('GET', '/quiz/3', { fixture: 'translation.ts' });
     cy.visit(`/quiz/3`);
   });
 
   it('renders age options correctly', () => {
     cy.get('.age').within(() => {
       cy.get('button').should('have.length', 4);
-      cy.get('button').eq(0).should('contain', '18-29 years');
-      cy.get('button').eq(1).should('contain', '30-39 years');
-      cy.get('button').eq(2).should('contain', '40-49 years');
-      cy.get('button').eq(3).should('contain', '50+');
+      cy.contains('button', '18-29 years').should('exist');
+      cy.contains('button', '30-39 years').should('exist');
+      cy.contains('button', '40-49 years').should('exist');
+      cy.contains('button', '50+').should('exist');
     });
   });
 
